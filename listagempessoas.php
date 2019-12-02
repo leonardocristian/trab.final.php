@@ -1,6 +1,14 @@
+<a href="index.php">Tela Inicial</a>
+<br>
 <a href="cadastropessoa.php">Cadastrar Pessoa</a>
 <hr>
+<?php
+    include "conexao.php";
 
+    $query = "select * from pessoa";
+    $result = mysqli_query($conn, $query);
+       
+?>
 
 <hr>
 
@@ -32,6 +40,11 @@
                     <td><?=$linha["cidade"]?></td>
                     <td><?=$linha["complemento"]?></td>
                     <td><?=$linha["uf"]?></td>
+                    <td>
+                        <a href="atualizar_form_pessoa.php?codigo=<?=$linha["codigo"]?>">Editar</a> 
+                        <br>   
+                        <a href="remove_pessoa.php?codigo=<?=$linha["codigo"]?>">Excluir</a>
+                  </td>
                 </tr>
             <?php
         }

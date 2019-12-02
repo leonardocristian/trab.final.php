@@ -1,5 +1,10 @@
+<a href="index.php">Tela Inicial</a>
+<br>
+<a href="listagempessoas.php">Listagem Pessoas</a>
+<hr>
 <?php
-    
+    include "conexao.php";
+
     if (isset($_POST["gravar"])) {
        
         $pnome = $_POST["primeiro_nome"];
@@ -11,6 +16,16 @@
         $complemento = $_POST["complemento"];
         $cidade = $_POST["cidade"];
         $uf = $_POST["uf"];
+
+        
+        $query = "insert into pessoa (primeiro_nome,sobrenome,documento,telefone,email,logradouro,complemento,cidade,uf)
+        values ('{$pnome}','{$snome}','{$documento}','{$telefone}','{$email}','{$logradouro}','{$complemento}','{$cidade}','{$uf}')";
+       
+        if ( !$dbh->query($query) ) {
+           echo "Erro ao inserir dados.";
+       } else {
+           echo "Cadastro realizado.";
+       }
 
     }
 ?>

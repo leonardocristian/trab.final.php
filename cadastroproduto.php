@@ -1,4 +1,10 @@
-<?php  
+<a href="index.php">Tela Inicial</a>
+<br>
+<a href="listagemprodutos.php">Listagem de Produtos</a>
+<hr>
+<?php
+    include "conexao.php";
+  
 
     if (isset($_POST["gravar"])) {
         
@@ -9,6 +15,15 @@
         $precovenda = $_POST["precovenda"];
         $obs = $_POST["obs"];
         $tempo = $_POST["tempo"];
+
+        $query = "insert into produto (descricao,caracteristica,und_v,barras,precovenda,obs,tempo)
+        values ('{$descricao}','{$caracteristica}','{$und_v}','{$barras}','{$precovenda}','{$obs}','{$tempo}')";
+       
+         if ( !$dbh->query($query) ) {
+           echo "Erro ao inserir dados.";
+       } else {
+           echo "Cadastro realizado.";
+       }
     
     }
 ?>

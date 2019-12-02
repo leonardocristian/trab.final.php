@@ -1,5 +1,14 @@
+<a href="index.php">Tela Inicial</a>
+<br>
 <a href="cadastroproduto.php">Cadastrar Produtos</a>
 <hr>
+<?php
+    include "conexao.php";
+
+    $query = "select * from produto";
+    $result = mysqli_query($conn, $query);
+       
+?>
 
 <hr>
 
@@ -26,6 +35,11 @@
                     <td><?=$linha["obs"]?></td>
                     <td><?=$linha["tempo"]?></td>
                     <td><?=$linha["und_v"]?></td>
+                    <td>
+                        <a href="atualizar_form_produto.php?codigo=<?=$linha["codigo"]?>">Editar</a> 
+                        <br>   
+                        <a href="remove_produto.php?codigo=<?=$linha["codigo"]?>">Excluir</a>
+                  </td>
                 </tr>
             <?php
         }

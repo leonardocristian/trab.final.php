@@ -1,4 +1,18 @@
+<?php
+    include "conexao.php";
 
+    if(isset($_POST["deletar"])) {
+        $sql = "delete from pessoa where codigo = ".$_GET['codigo'];
+        mysqli_query($conn, $sql);
+        ?>
+            <a href="index.php">Pessoa removida com sucesso. Clique aqui para retornar a listagem.</a>
+        <?php
+        exit();
+    }
+?>
+
+<a href="index.php">Voltar para a lista de Pessoas</a>
+<hr>
 <?php
     $query = "select * from pessoa where codigo = ".$_GET['codigo'];
     $resultado = mysqli_query($conn, $query);
