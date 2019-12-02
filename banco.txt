@@ -1,0 +1,64 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 28-Nov-2019 às 00:25
+-- Versão do servidor: 10.4.8-MariaDB
+-- versão do PHP: 7.3.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `sistemaos`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pessoa`
+--
+
+CREATE TABLE `pessoa` (
+  `primeiro_nome` varchar(60) NOT NULL,
+  `sobrenome` varchar(60) NOT NULL,
+  `documento` int(25) NOT NULL,
+  `telefone` int(25) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `logradouro` varchar(100) NOT NULL,
+  `complemento` varchar(100) NOT NULL,
+  `cidade` varchar(100) NOT NULL,
+  `uf` varchar(2) NOT NULL,
+  `codigo` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produto`
+--
+
+CREATE TABLE `produto` (
+  `descricao` int(90) NOT NULL,
+  `caracteristica` int(90) NOT NULL,
+  `und_v` int(50) NOT NULL,
+  `barras` int(25) NOT NULL,
+  `precovenda` decimal(20,0) NOT NULL,
+  `obs` varchar(100) NOT NULL,
+  `tempo` int(100) NOT NULL,
+  `codigo` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
